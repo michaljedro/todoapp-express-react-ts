@@ -28,6 +28,7 @@ export const ButtonCompleted = styled.button`
   cursor: pointer;
 `;
 export const InfoLabelFooter = styled.div`
+  z-index: 0;
   width: 540px;
   padding: 15px;
   display: flex;

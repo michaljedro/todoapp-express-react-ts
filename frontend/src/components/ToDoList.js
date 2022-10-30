@@ -1,16 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { TodoContext } from "../Context/ToDoContext";
 import ToDo from "./ToDo";
+import {
+  ItemsLeft,
+  ActivityItems,
+  BoxActivityItems,
+  ButtonCompleted,
+  InfoLabelFooter,
+} from "../styles/ToDoList.styled";
 function ToDoList() {
   const { todoList, deleteTodo } = useContext(TodoContext);
-  // const [todo, setTodo] = useState(data);
   console.log(todoList?.length);
   return (
     <div
       style={{
         display: "block",
-        // justifyContent: "center",
-        // marginTop: "24px",
         borderRadius: "5px",
       }}
     >
@@ -18,41 +22,17 @@ function ToDoList() {
         todoList.map((todo) => (
           <ToDo key={`todo_item-${todo._id}`} data={todo} />
         ))}
-      <div
-        className="btn-group"
-        style={{
-          backgroundColor: "coral",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <span>{todoList?.length} items left</span>
-        <div>
-          <span>All</span>
-          <span>Active</span>
-          <span>Completed</span>
-        </div>
+      <InfoLabelFooter>
+        <ItemsLeft>{todoList?.length} items left</ItemsLeft>
+        <BoxActivityItems>
+          <ActivityItems>All</ActivityItems>
+          <ActivityItems>Active</ActivityItems>
+          <ActivityItems>Completed</ActivityItems>
+        </BoxActivityItems>
 
-        <button>Clear Completed</button>
-      </div>
+        <ButtonCompleted>Clear Completed</ButtonCompleted>
+      </InfoLabelFooter>
     </div>
-
-    // <div>
-    //   <div>
-    //     {todo?.map((item, index) => {
-    //       const { id, task, complete } = item;
-    //       return (
-    //         <div key={index} className={complete ? "strike" : ""}>
-    //           <h1>{task}</h1>
-    //           {/* <button onClick={() => handleToggle(id)}>Change status</button> */}
-    //         </div>
-    //       );
-    //     })}
-    //   </div>
-    //   <div style={{ margin: "10px" }}>
-    //     {/* <button onClick={handleFilter}>Clear completed</button> */}
-    //   </div>
-    // </div>
   );
 }
 

@@ -1,18 +1,11 @@
 import React from "react";
-import { FaCalculator } from "react-icons/fa";
+import { FooterComponents, FooterParagraph } from "../styles/Footer.styled";
 
 function Footer() {
   return (
-    <div
-      style={{
-        backgroundColor: "#FAFAFA",
-        display: "flex",
-        justifyContent: "center",
-        marginBottom: "52px",
-      }}
-    >
-      <p style={{ fontSize: "14px" }}>Drag and Drop to reorder list</p>
-    </div>
+    <FooterComponents>
+      <FooterParagraph>Drag and Drop to reorder list</FooterParagraph>
+    </FooterComponents>
   );
 }
 

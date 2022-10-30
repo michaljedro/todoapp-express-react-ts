@@ -10,6 +10,10 @@ export const AplicationStyled = styled.div`
   display: flex;
   justify-content: center;
 `;
-export const ToDoFormBoxStyles = styled.div`
+export const ToDoFormBox = styled.div`
   margin-top: 70px;
+  border: 1px solid black;
+`;
+export const ToDoFormHeader = styled.div`
+  display: flex;
 `;

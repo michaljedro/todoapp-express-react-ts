@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-// export const ToDoItem = styled.div`
-//   border: 1px solid red;
-//   width: 540px;
-// `;
-
 export const ToDoBox = styled.div`
   padding: 24px;
   width: 540px;

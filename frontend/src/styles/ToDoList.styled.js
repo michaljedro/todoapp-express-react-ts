@@ -5,7 +5,6 @@ export const ItemsLeft = styled.span`
   color: #9495a5;
 `;
 export const BoxActivityItems = styled.div`
-  border: 1px solid green;
   width: 166px;
 `;
 export const ActivityItems = styled.span`

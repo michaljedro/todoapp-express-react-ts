@@ -8,7 +8,9 @@ import {
   ButtonCompleted,
   InfoLabelFooter,
 } from "../styles/ToDoList.styled";
+import { ThemeContext } from "../Context/ThemeStore";
 function ToDoList() {
+  const { theme } = useContext(ThemeContext);
   const { todoList, deleteTodo } = useContext(TodoContext);
   console.log(todoList?.length);
   return (
@@ -22,15 +24,15 @@ function ToDoList() {
         todoList
           .slice(0, 5)
           .map((todo) => <ToDo key={`todo_item-${todo._id}`} data={todo} />)}
-      <InfoLabelFooter>
+      <InfoLabelFooter theme={theme}>
         <ItemsLeft>{todoList?.length} items left</ItemsLeft>
         <BoxActivityItems>
-          <ActivityItems>All</ActivityItems>
-          <ActivityItems>Active</ActivityItems>
-          <ActivityItems>Completed</ActivityItems>
+          <ActivityItems theme={theme}>All</ActivityItems>
+          <ActivityItems theme={theme}>Active</ActivityItems>
+          <ActivityItems theme={theme}>Completed</ActivityItems>
         </BoxActivityItems>
 
-        <ButtonCompleted>Clear Completed</ButtonCompleted>
+        <ButtonCompleted theme={theme}>Clear Completed</ButtonCompleted>
       </InfoLabelFooter>
     </div>
   );

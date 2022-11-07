@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 export const ItemsLeft = styled.span`
   font-size: 14px;
-  color: #9495a5;
+  color: ${(props) => (props.theme === "light" ? "#9495A5" : "#5B5E7E")};
 `;
 export const BoxActivityItems = styled.div`
   width: 166px;
+  color: ${(props) => (props.theme === "light" ? "#9495A5" : "#5B5E7E")};
 `;
 export const ActivityItems = styled.span`
   font-size: 18px;
-  color: #9495a5;
+  color: ${(props) => (props.theme === "light" ? "#9495A5" : "#5B5E7E")};
   margin: 5px;
   font-weight: bold;
   &:hover {
@@ -17,9 +18,10 @@ export const ActivityItems = styled.span`
   }
 `;
 export const ButtonCompleted = styled.button`
-  background-color: #ffffff;
+  background-color: ${(props) =>
+    props.theme === "light" ? "#FFFFFF" : "#25273D"};
   border: none;
-  color: #9495a5;
+  color: ${(props) => (props.theme === "light" ? "#9495A5" : "#5B5E7E")};
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -31,7 +33,8 @@ export const InfoLabelFooter = styled.div`
   width: 540px;
   padding: 15px;
   display: flex;
-  background-color: #ffffff;
+  background-color: ${(props) =>
+    props.theme === "light" ? "#FFFFFF" : "#25273D"};
   justify-content: space-between;
   align-items: center;
   border-bottom-left-radius: 5px;

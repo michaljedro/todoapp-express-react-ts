@@ -49,6 +49,7 @@ function ToDoForm() {
         )}
       </ToDoFormHeader>
       <Input
+        theme={theme}
         placeholder="Create a new todo..."
         ref={inputRef}
         onKeyDown={handleAddTodo}

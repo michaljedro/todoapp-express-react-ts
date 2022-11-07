@@ -29,4 +29,7 @@ export const Input = styled.input`
   height: 64px;
   margin-bottom: 24px;
   padding-left: 73px;
+  background-color: ${(props) =>
+    props.theme === "light" ? "#FFFFFF" : "#25273D"};
+  border-radius: 5px;
 `;

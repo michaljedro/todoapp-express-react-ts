@@ -19,9 +19,9 @@ function ToDoList() {
       }}
     >
       {todoList &&
-        todoList.map((todo) => (
-          <ToDo key={`todo_item-${todo._id}`} data={todo} />
-        ))}
+        todoList
+          .slice(0, 5)
+          .map((todo) => <ToDo key={`todo_item-${todo._id}`} data={todo} />)}
       <InfoLabelFooter>
         <ItemsLeft>{todoList?.length} items left</ItemsLeft>
         <BoxActivityItems>

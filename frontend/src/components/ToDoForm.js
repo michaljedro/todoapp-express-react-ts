@@ -8,9 +8,14 @@ import {
   Header,
   Input,
 } from "../styles/TodoForm.styled";
+import { ThemeContext } from "../Context/ThemeStore";
+import Theme from "../styles/Global";
+
 function ToDoForm() {
   const inputRef = useRef();
   const { addTodo } = useContext(TodoContext);
+  const { theme, setTheme } = useContext(ThemeContext);
+  const { test, setTest } = useState(false);
 
   const handleAddTodo = (e) => {
     if (e.key === "Enter") {
@@ -23,14 +28,24 @@ function ToDoForm() {
     <ToDoFormBox>
       <ToDoFormHeader>
         <Header>TODO</Header>
-        {false ? (
-          <FaMoon
-            style={{ color: "white", fontSize: "14px", marginTop: "11px" }}
-          />
+        {theme === "light" ? (
+          <button
+            onClick={() => setTheme("dark")}
+            style={{ backgroundColor: "transparent", border: "none" }}
+          >
+            <FaMoon
+              style={{ color: "white", fontSize: "34px", marginTop: "11px" }}
+            />
+          </button>
         ) : (
-          <FaSun
-            style={{ color: "white", fontSize: "34px", marginTop: "11px" }}
-          />
+          <button
+            onClick={() => setTheme("light")}
+            style={{ backgroundColor: "transparent", border: "none" }}
+          >
+            <FaSun
+              style={{ color: "white", fontSize: "34px", marginTop: "11px" }}
+            />
+          </button>
         )}
       </ToDoFormHeader>
       <Input

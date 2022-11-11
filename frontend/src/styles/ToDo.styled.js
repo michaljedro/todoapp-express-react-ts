@@ -14,3 +14,20 @@ export const ToDoBox = styled.div`
     border-top-right-radius: 5px;
   }
 `;
+
+export const Label = styled.label`
+  display: block;
+  position: relative;
+  padding-left: 45px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 20px;
+`;
+export const Span = styled.span`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: black;
+`;

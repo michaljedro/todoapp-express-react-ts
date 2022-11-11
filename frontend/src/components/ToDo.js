@@ -10,7 +10,6 @@ function ToDo({ data }) {
 
   return (
     <ToDoBox theme={theme}>
-      <input ref={checkboxRef} type="checkbox" id={data._id} />
       <label
         style={{
           color: "#494C6B",
@@ -19,6 +18,8 @@ function ToDo({ data }) {
         }}
         htmlFor={data._id}
       >
+        <input ref={checkboxRef} type="checkbox" id={data._id} />
+        <span></span>
         {data.name}
       </label>
     </ToDoBox>

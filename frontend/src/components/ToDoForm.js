@@ -31,20 +31,29 @@ function ToDoForm() {
         {theme === "light" ? (
           <button
             onClick={() => setTheme("dark")}
-            style={{ backgroundColor: "transparent", border: "none" }}
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              marginBottom: "auto",
+            }}
           >
             <FaMoon
-              style={{ color: "white", fontSize: "34px", marginTop: "11px" }}
+              style={{
+                color: "white",
+                fontSize: "34px",
+              }}
             />
           </button>
         ) : (
           <button
             onClick={() => setTheme("light")}
-            style={{ backgroundColor: "transparent", border: "none" }}
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              marginBottom: "auto",
+            }}
           >
-            <FaSun
-              style={{ color: "white", fontSize: "34px", marginTop: "11px" }}
-            />
+            <FaSun style={{ color: "white", fontSize: "34px" }} />
           </button>
         )}
       </ToDoFormHeader>

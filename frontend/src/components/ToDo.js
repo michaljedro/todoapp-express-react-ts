@@ -1,6 +1,13 @@
 import React, { useContext, useRef } from "react";
 import { TodoContext } from "../Context/ToDoContext";
-import { ToDoItem, ToDoBox } from "../styles/ToDo.styled";
+import {
+  ToDoItem,
+  ToDoBox,
+  InputTodo,
+  LabelTodo,
+  SpanTodo,
+} from "../styles/ToDo.styled";
+import Checkbox from "./Checkbox";
 import { ThemeContext } from "../Context/ThemeStore";
 
 function ToDo({ data }) {
@@ -8,20 +15,13 @@ function ToDo({ data }) {
   const checkboxRef = useRef();
   const { theme, setTheme } = useContext(ThemeContext);
 
+  const handleChange = (e) => {
+    console.log(e.target.checked);
+  };
+
   return (
     <ToDoBox theme={theme}>
-      <label
-        style={{
-          color: "#494C6B",
-          fontWeight: "normal",
-          marginLeft: "34px",
-        }}
-        htmlFor={data._id}
-      >
-        <input ref={checkboxRef} type="checkbox" id={data._id} />
-        <span></span>
-        {data.name}
-      </label>
+      <Checkbox data={data} />
     </ToDoBox>
   );
 }

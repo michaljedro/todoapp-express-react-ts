@@ -13,6 +13,7 @@ export const TodoProvider = ({ children }) => {
     };
     fetchTodos();
   }, []);
+
   const addTodo = async (name) => {
     const response = await fetch("http://localhost:4444/todos/new", {
       method: "POST",
@@ -23,6 +24,19 @@ export const TodoProvider = ({ children }) => {
     });
     const newTodo = await response.json();
     setTodoList((prev) => [...prev, newTodo]);
+  };
+
+  const editCompletedTodo = async (id) => {
+    const response = await fetch("http://localhost:4444/todos/edit/" + id, {
+      method: "PATCH",
+    });
+    const updatedTodo = await response.json();
+    const newTodos = [...todoList];
+    console.log(newTodos);
+    console.log(id);
+    const index = newTodos.findIndex((todo) => todo._id === id);
+    newTodos.splice(index, 1, updatedTodo);
+    setTodoList(newTodos);
   };
 
   const deleteTodo = async (id) => {
@@ -52,6 +66,8 @@ export const TodoProvider = ({ children }) => {
     todoList,
     addTodo,
     deleteTodo,
+    deleteMany,
+    editCompletedTodo,
   };
 
   return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;

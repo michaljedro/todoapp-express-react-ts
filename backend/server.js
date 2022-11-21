@@ -36,6 +36,21 @@ app.post(
   })
 );
 
+app.patch(
+  "/todos/edit/:id",
+  asyncHandler(async (req, res) => {
+    if (!req.params) {
+      res.status(400).send("Invalid data");
+    }
+    console.log(req.params);
+    const { id } = req.params;
+    const todo = await Todo.findById(id);
+    todo.completed = !todo.completed;
+    await todo.save();
+    res.send(todo);
+  })
+);
+
 app.post(
   "/todos/deletemany",
   asyncHandler(async (req, res) => {

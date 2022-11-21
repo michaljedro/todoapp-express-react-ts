@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import { FooterComponents, FooterParagraph } from "../styles/Footer.styled";
+import { FooterBox, FooterText } from "../styles/Footer.styled";
 import { ThemeContext } from "../Context/ThemeStore";
 
 function Footer() {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <FooterComponents theme={theme}>
-      <FooterParagraph>Drag and Drop to reorder list</FooterParagraph>
-    </FooterComponents>
+    <FooterBox theme={theme}>
+      <FooterText>Drag and drop to reorder list</FooterText>
+    </FooterBox>
   );
 }
 

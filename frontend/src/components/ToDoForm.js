@@ -11,6 +11,7 @@ import {
   TextHeader,
   InputTodo,
   Container,
+  InnerContainer,
 } from "../styles/TodoForm.styled";
 import { ThemeContext } from "../Context/ThemeStore";
 
@@ -30,45 +31,47 @@ function ToDoForm() {
   return (
     <ToDoHeader theme={theme}>
       <Container>
-        <ToDoFormBox>
-          <TextHeader>TODO</TextHeader>
-          {theme === "light" ? (
-            <button
-              onClick={() => setTheme("dark")}
-              style={{
-                backgroundColor: "transparent",
-                border: "none",
-                marginBottom: "auto",
-              }}
-            >
-              <FaMoon
+        <InnerContainer>
+          <ToDoFormBox>
+            <TextHeader>TODO</TextHeader>
+            {theme === "light" ? (
+              <button
+                onClick={() => setTheme("dark")}
                 style={{
-                  color: "white",
-                  fontSize: "1.3rem",
+                  backgroundColor: "transparent",
+                  border: "none",
+                  marginBottom: "auto",
                 }}
-              />
-            </button>
-          ) : (
-            <button
-              onClick={() => setTheme("light")}
-              style={{
-                backgroundColor: "transparent",
-                border: "none",
-                marginBottom: "auto",
-              }}
-            >
-              <FaSun style={{ color: "white", fontSize: "1.3rem" }} />
-            </button>
-          )}
-        </ToDoFormBox>
-        <InputTodo
-          theme={theme}
-          placeholder="Create a new todo..."
-          ref={inputRef}
-          onKeyDown={handleAddTodo}
-        />
+              >
+                <FaMoon
+                  style={{
+                    color: "white",
+                    fontSize: "1.3rem",
+                  }}
+                />
+              </button>
+            ) : (
+              <button
+                onClick={() => setTheme("light")}
+                style={{
+                  backgroundColor: "transparent",
+                  border: "none",
+                  marginBottom: "auto",
+                }}
+              >
+                <FaSun style={{ color: "white", fontSize: "1.3rem" }} />
+              </button>
+            )}
+          </ToDoFormBox>
+          <InputTodo
+            theme={theme}
+            placeholder="Create a new todo..."
+            ref={inputRef}
+            onKeyDown={handleAddTodo}
+          />
 
-        <ToDoList />
+          <ToDoList />
+        </InnerContainer>
       </Container>
     </ToDoHeader>
   );

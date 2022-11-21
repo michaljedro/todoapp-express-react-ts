@@ -6,20 +6,15 @@ import backgroundDarkMobile from "../images/bg-mobile-dark.jpg";
 import { devices } from "./Global";
 export const Container = styled.div`
   @media ${devices.mobileS} {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: ${(props) => props.theme.background};
   }
   @media ${devices.mobileM} {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: ${(props) => props.theme.background};
-  }
-  @media ${devices.mobileL} {
-    background-color: red;
   }
 `;

@@ -6,24 +6,16 @@ export const ToDoBox = styled.div`
     solid;
   background-color: ${(props) =>
     props.theme === "light" ? "#FFFFFF" : "#25273D"};
-  @media ${devices.mobileS} {
-    height: 2rem;
-    width: 15rem;
-    display: flex;
-    align-items: center;
-    &:first-child {
-      border-top-left-radius: 0.3rem;
-      border-top-right-radius: 0.3rem;
-    }
+  height: 3rem;
+  width: 19rem;
+  display: flex;
+  align-items: center;
+  &:first-child {
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
   }
-  @media ${devices.mobileM} {
-    height: 3rem;
-    width: 19rem;
-    display: flex;
-    align-items: center;
-    &:first-child {
-      border-top-left-radius: 0.3rem;
-      border-top-right-radius: 0.3rem;
-    }
+
+  @media ${devices.desktop} {
+    width: 30rem;
   }
 `;

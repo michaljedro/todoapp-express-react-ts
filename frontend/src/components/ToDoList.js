@@ -23,17 +23,15 @@ function ToDoList() {
       <div>
         <div>
           {todoList &&
-            todoList
-              .slice(0, 5)
-              .map((todo) => (
-                <ToDo key={`todo_item-${todo._id}`} data={todo} />
-              ))}
+            todoList.map((todo) => (
+              <ToDo key={`todo_item-${todo._id}`} data={todo} />
+            ))}
           <ItemsActivity theme={theme}>
             <SpanLeft>{todoList?.length} items left</SpanLeft>
-            <BoxActivityItems>
-              <span theme={theme}>All</span>
-              <span theme={theme}>Active</span>
-              <span theme={theme}>Completed</span>
+            <BoxActivityItems theme={theme}>
+              <button>All</button>
+              <button>Active</button>
+              <button>Completed</button>
             </BoxActivityItems>
             <ButtonCompleted theme={theme}>Clear Completed</ButtonCompleted>
           </ItemsActivity>

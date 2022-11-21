@@ -19,7 +19,7 @@ export const MobileActivityItems = styled.div`
   background-color: ${(props) =>
     props.theme === "light" ? "#FFFFFF" : "#25273D"};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  @media ${devices.mobileS} {
+  /* @media ${devices.mobileS} {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -29,25 +29,40 @@ export const MobileActivityItems = styled.div`
     padding-left: 3rem;
     padding-right: 3rem;
     margin-top: 3rem;
-  }
-  @media ${devices.mobileM} {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 19rem;
-    height: 3rem;
-    border-radius: 0.3rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    margin-top: 3rem;
+  } */
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 19rem;
+  height: 3rem;
+  border-radius: 0.3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  margin-top: 3rem;
+
+  @media ${devices.desktop} {
+    display: none;
   }
 `;
 export const BoxActivityItems = styled.div`
-  @media ${devices.mobileS} {
-    display: none;
-  }
-  @media ${devices.mobileM} {
-    display: none;
+  display: none;
+
+  @media ${devices.desktop} {
+    display: inline-block;
+
+    > button {
+      margin: 0 1rem;
+      appearance: none;
+      border: none;
+      background-color: transparent;
+      font-size: 0.6rem;
+      color: ${(props) => (props.theme === "light" ? "#9495A5" : "#5B5E7E")};
+      cursor: pointer;
+      :hover {
+        color: #3a7cfd;
+      }
+    }
   }
 `;
 export const SpanLeft = styled.span`
@@ -88,7 +103,6 @@ export const ItemsActivity = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 15rem;
     height: 3rem;
     background-color: ${(props) =>
       props.theme === "light" ? "#FFFFFF" : "#25273D"};

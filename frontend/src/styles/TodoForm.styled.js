@@ -10,6 +10,15 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
 `;
+
+export const InnerContainer = styled.div`
+  width: 19rem;
+  margin-bottom: 8rem;
+
+  @media ${devices.desktop} {
+    width: 30rem;
+  }
+`;
 export const ToDoHeader = styled.div`
   @media ${devices.mobileS} {
     height: 12.5rem;
@@ -32,22 +41,19 @@ export const TextHeader = styled.h1`
   }
 `;
 export const ToDoFormBox = styled.div`
-  @media ${devices.mobileS} {
-    display: flex;
-    justify-content: space-between;
-    width: 15rem;
-    align-items: center;
-    padding-top: 3rem;
-  }
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding-top: 3rem;
 `;
 export const InputTodo = styled.input`
-  @media ${devices.mobileS} {
-    width: 15rem;
-    height: 3rem;
-    margin-top: 2.4rem;
-    background-color: ${(props) =>
-      props.theme === "light" ? "#FFFFFF" : "#25273D"};
-  }
+  width: 100%;
+  height: 3rem;
+  margin-top: 2.4rem;
+  background-color: ${(props) =>
+    props.theme === "light" ? "#FFFFFF" : "#25273D"};
+
   border: none;
   border-radius: 0.2rem;
   padding-left: 1.5rem;

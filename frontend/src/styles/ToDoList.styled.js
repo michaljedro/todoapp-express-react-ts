@@ -19,17 +19,6 @@ export const MobileActivityItems = styled.div`
   background-color: ${(props) =>
     props.theme === "light" ? "#FFFFFF" : "#25273D"};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  /* @media ${devices.mobileS} {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 15rem;
-    height: 2.5rem;
-    border-radius: 0.3rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    margin-top: 3rem;
-  } */
 
   display: flex;
   justify-content: space-around;

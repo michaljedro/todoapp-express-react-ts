@@ -4,7 +4,7 @@ import { ThemeContext, ThemeStore } from "../Context/ThemeStore";
 
 const themes = {
   dark: {
-    background: "#171823",
+    // background: "#171823",
     input: "#25273D",
     veryDarkBlue: "hsl(235, 21%, 11%)",
     veryDarkDesaturatedBlue: "hsl(235, 24%, 19%)",
@@ -14,7 +14,7 @@ const themes = {
     veryDarkGrayishBlue: "hsl(233, 14%, 35%)",
   },
   light: {
-    background: "#FAFAFA",
+    // background: "#FAFAFA",
     veryLightGray: "hsl(0, 0%, 98%)",
     veryLightGrayBlue: "hsl(236, 33%, 92%)",
     lightGrayishBlue: "hsl(233, 11%, 84%)",
@@ -32,15 +32,6 @@ const sizes = {
   laptopL: "1440px",
   desktop: "2560px",
 };
-// export const devices = {
-//   mobileS: `(max-width: ${sizes.mobileS})`,
-//   mobileM: `(min-width: ${sizes.mobileM})`,
-//   mobileL: `(min-width: ${sizes.mobileL})`,
-//   tablet: `(min-width: ${sizes.tablet})`,
-//   laptop: `(min-width: ${sizes.laptop})`,
-//   laptopL: `(min-width: ${sizes.laptopL})`,
-//   desktop: `(min-width: ${sizes.desktop})`,
-// };
 
 export const devices = {
   desktop: `(min-width: ${sizes.tablet})`,
@@ -57,8 +48,9 @@ const GlobalStyles = createGlobalStyle`
     font-size:14px;
   }
   body {
+    background-color: ${(props) =>
+      props.theme === "light" ? "#F9F9F9" : "#171823"};
     font-family: 'Poppins', sans-serif;
-    margin: 0;
   }
   p {
     opacity: 0.6;
@@ -71,7 +63,7 @@ const Theme = ({ children }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <ThemeProvider theme={themes[theme]}>
-      <GlobalStyles />
+      <GlobalStyles theme={theme} />
       {children}
     </ThemeProvider>
   );

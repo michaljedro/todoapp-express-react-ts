@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import checkPng from "../images/check.png";
 import checkSvg from "../images/icon-check.svg";
 import { devices } from "./Global";

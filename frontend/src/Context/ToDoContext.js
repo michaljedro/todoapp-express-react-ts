@@ -4,7 +4,7 @@ export const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
   const [todoList, setTodoList] = useState(null);
-
+  console.log(todoList);
   useEffect(() => {
     const fetchTodos = async () => {
       const response = await fetch("http://localhost:4444/todos");

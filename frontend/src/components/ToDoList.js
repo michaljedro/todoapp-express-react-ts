@@ -2,12 +2,9 @@ import React, { useContext } from "react";
 import { TodoContext } from "../Context/ToDoContext";
 import ToDo from "./ToDo";
 import {
-  ItemsLeft,
-  ActivityItems,
   ItemsActivity,
   BoxActivityItems,
   ButtonCompleted,
-  InfoLabelFooter,
   MobileActivityItems,
   SpanAction,
   TodoList,
@@ -16,8 +13,12 @@ import {
 import { ThemeContext } from "../Context/ThemeStore";
 function ToDoList() {
   const { theme } = useContext(ThemeContext);
-  const { todoList, deleteMany } = useContext(TodoContext);
+  const { todoList, addTodo, deleteTodo, deleteMany, editCompletedTodo } =
+    useContext(TodoContext);
   console.log(todoList?.length);
+  const handleDelete = (id) => {
+    deleteTodo(id);
+  };
   return (
     <TodoList>
       <div>

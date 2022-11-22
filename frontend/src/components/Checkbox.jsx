@@ -10,6 +10,7 @@ const Checkbox = ({ data }) => {
 
   const handleChange = () => {
     editCompletedTodo(data._id);
+    console.log(data._id);
   };
   return (
     <>

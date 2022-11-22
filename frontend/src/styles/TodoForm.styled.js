@@ -1,14 +1,35 @@
 import styled from "styled-components";
-import backgorundImage from "../images/bg-desktop-light.jpg";
-import lightBackgroundImageMobile from "../images/bg-mobile-light.jpg";
-import darkBackgroundImageMobile from "../images/bg-mobile-dark.jpg";
+import desktopLightBackgroundImage from "../images/bg-desktop-light.jpg";
+import desktopDarkBackgroundImage from "../images/bg-desktop-dark.jpg";
+import mobileLightBackgroundImage from "../images/bg-mobile-light.jpg";
+import mobileDarkBackgroundImage from "../images/bg-mobile-dark.jpg";
 import { devices } from "./Global";
 
+export const BackgroundImage = styled.div`
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url(${(props) =>
+    props.theme === "light"
+      ? mobileLightBackgroundImage
+      : mobileDarkBackgroundImage});
+  @media ${devices.desktop} {
+    background-image: url(${(props) =>
+      props.theme === "light"
+        ? desktopLightBackgroundImage
+        : desktopDarkBackgroundImage});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+`;
 export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  margin: 0 auto;
+  width: 20rem;
+  @media ${devices.desktop} {
+    width: 30rem;
+    margin: 0 auto;
+  }
 `;
 
 export const InnerContainer = styled.div`
@@ -22,13 +43,6 @@ export const InnerContainer = styled.div`
 export const ToDoHeader = styled.div`
   @media ${devices.mobileS} {
     height: 12.5rem;
-    background-image: url(${(props) =>
-      props.theme === "light"
-        ? lightBackgroundImageMobile
-        : darkBackgroundImageMobile});
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
   }
 `;
 export const TextHeader = styled.h1`

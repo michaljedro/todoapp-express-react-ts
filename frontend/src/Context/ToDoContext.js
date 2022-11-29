@@ -4,6 +4,9 @@ export const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
   const [todoList, setTodoList] = useState(null);
+  const [completedTodos, setCompletedTodos] = useState([]);
+  const [activeTodos, setActiveTodos] = useState([]);
+
   console.log(todoList);
   useEffect(() => {
     const fetchTodos = async () => {
@@ -13,6 +16,17 @@ export const TodoProvider = ({ children }) => {
     };
     fetchTodos();
   }, []);
+
+  useEffect(() => {
+    if (!todoList) {
+      return;
+    }
+    const completed = todoList.filter((todo) => todo.completed);
+    const active = todoList.filter((todo) => !todo.completed);
+
+    setCompletedTodos(completed);
+    setActiveTodos(active);
+  }, [todoList]);
 
   const addTodo = async (name) => {
     const response = await fetch("http://localhost:4444/todos/new", {
@@ -40,7 +54,7 @@ export const TodoProvider = ({ children }) => {
   };
 
   const deleteTodo = async (id) => {
-    const response = await fetch("http://localhost:4444/todos/" + id, {
+    await fetch("http://localhost:4444/todos/" + id, {
       method: "DELETE",
     });
     setTodoList((prev) => prev.filter((todo) => todo._id !== id));
@@ -68,6 +82,8 @@ export const TodoProvider = ({ children }) => {
     deleteTodo,
     deleteMany,
     editCompletedTodo,
+    activeTodos,
+    completedTodos,
   };
 
   return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;

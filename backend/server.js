@@ -60,14 +60,18 @@ app.post(
 
     const { idsToDelete } = req.body;
 
-    idsToDelete.map(async (id) => {
-      try {
-        await Todo.deleteOne({ _id: id });
-      } catch (e) {
-        console.log(error);
-        res.status(400).send("Error", error);
-      }
+    await Todo.deleteMany({
+      _id: { $in: idsToDelete },
     });
+
+    // idsToDelete.map(async (id) => {
+    //   try {
+    //     await Todo.deleteOne({ _id: id });
+    //   } catch (e) {
+    //     console.log(error);
+    //     res.status(400).send("Error", error);
+    //   }
+    // });
 
     const todos = await Todo.find({});
     res.send(todos);

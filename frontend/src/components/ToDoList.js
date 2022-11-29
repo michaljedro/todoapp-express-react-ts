@@ -11,30 +11,69 @@ import {
   SpanLeft,
 } from "../styles/ToDoList.styled";
 import { ThemeContext } from "../Context/ThemeStore";
+import { useState } from "react";
+
 function ToDoList() {
   const { theme } = useContext(ThemeContext);
-  const { todoList, addTodo, deleteTodo, deleteMany, editCompletedTodo } =
-    useContext(TodoContext);
-  console.log(todoList?.length);
-  const handleDelete = (id) => {
-    deleteTodo(id);
+  const {
+    todoList,
+    addTodo,
+    deletedeleteTodoTodo,
+    deleteMany,
+    editCompletedTodo,
+    activeTodos,
+    completedTodos,
+  } = useContext(TodoContext);
+  const [active, setActive] = useState(false);
+  const [completed, setCompleted] = useState(false);
+
+  const handleDelete = () => {
+    const checkedIds = todoList
+      .filter((todo) => todo.completed)
+      .map((todo) => todo._id);
+    deleteMany(checkedIds);
   };
+  const handleAll = () => {
+    setActive(false);
+    setCompleted(false);
+  };
+  const handleActive = () => {
+    setActive(true);
+    setCompleted(false);
+  };
+  const handleCompleted = () => {
+    setActive(false);
+    setCompleted(true);
+  };
+
+  let todos = [];
+
+  if (!active && !completed) {
+    todos = todoList;
+  } else if (active && !completed) {
+    todos = activeTodos;
+  } else {
+    todos = completedTodos;
+  }
+
   return (
     <TodoList>
       <div>
         <div>
-          {todoList &&
-            todoList.map((todo) => (
+          {todos &&
+            todos.map((todo) => (
               <ToDo key={`todo_item-${todo._id}`} data={todo} />
             ))}
           <ItemsActivity theme={theme}>
-            <SpanLeft>{todoList?.length} items left</SpanLeft>
+            <SpanLeft>{todos?.length} items left</SpanLeft>
             <BoxActivityItems theme={theme}>
-              <button>All</button>
-              <button>Active</button>
-              <button>Completed</button>
+              <button onClick={handleAll}>All</button>
+              <button onClick={handleActive}>Active</button>
+              <button onClick={handleCompleted}>Completed</button>
             </BoxActivityItems>
-            <ButtonCompleted theme={theme}>Clear Completed</ButtonCompleted>
+            <ButtonCompleted onClick={handleDelete} theme={theme}>
+              Clear Completed
+            </ButtonCompleted>
           </ItemsActivity>
         </div>
       </div>
